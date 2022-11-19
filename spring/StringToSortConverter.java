@@ -26,7 +26,7 @@ import org.springframework.data.domain.Sort.Order;
 
 /**
  * Converts a given RQL like Sort-String to a Spring-Data Sort-Object.
- * RQL: https://www.eclipse.org/ditto/basic-rql.html#rql-sorting
+ * RQL: https://github.com/persvr/rql
  * 
  * @author Dennis Katz
  * @version 2022-11-19
