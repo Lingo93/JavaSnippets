@@ -35,7 +35,6 @@ import org.springframework.data.domain.Sort.Order;
 public class StringToSortConverter implements Converter<String, Sort> {
 	
 	public Sort convert(String source) {
-		System.out.println(source);
 		if(!source.matches("^([+\\- ][a-zA-Z_$][a-zA-Z0-9_$]*,?)+$")) {
 			throw new InvalidParameterException("invalid sort parameter format for input string: '"+source+"'");
 		}
