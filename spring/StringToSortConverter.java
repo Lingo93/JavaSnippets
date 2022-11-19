@@ -26,21 +26,24 @@ import org.springframework.data.domain.Sort.Order;
 
 /**
  * Converts a given RQL like Sort-String to a Spring-Data Sort-Object.
- * RQL: https://github.com/persvr/rql
+ * RQL: https://www.eclipse.org/ditto/basic-rql.html#rql-sorting
  * 
  * @author Dennis Katz
+ * @version 2022-11-19
  *
  */
 public class StringToSortConverter implements Converter<String, Sort> {
 	
 	public Sort convert(String source) {
+		System.out.println(source);
 		if(!source.matches("^([+\\- ][a-zA-Z_$][a-zA-Z0-9_$]*,?)+$")) {
 			throw new InvalidParameterException("invalid sort parameter format for input string: '"+source+"'");
 		}
 		String[] parts = source.split(",");
 		Order[] orders = new Order[parts.length];
 		for(int i = 0; i < parts.length; i++) {
-			orders[i] = new Order(!parts[i].startsWith("-") ? Direction.ASC : Direction.DESC, parts[i].matches("^[+\\- ]") ? parts[i].substring(1) : parts[i]);
+			System.out.println(parts[i]+": "+parts[i].matches("^[+\\- ].*"));
+			orders[i] = new Order(!parts[i].startsWith("-") ? Direction.ASC : Direction.DESC, parts[i].matches("^[+\\- ].*") ? parts[i].substring(1) : parts[i]);
 		}
 		return Sort.by(orders);
 	}
