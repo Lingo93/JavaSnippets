@@ -17,6 +17,13 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import java.security.InvalidParameterException;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.domain.Sort.Order;
+
 /**
  * Converts a given RQL like Sort-String to a Spring-Data Sort-Object.
  * RQL: https://www.eclipse.org/ditto/basic-rql.html#rql-sorting
