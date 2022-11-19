@@ -1,1 +1,1 @@
-# JavaSnipets
+# JavaSnippets
